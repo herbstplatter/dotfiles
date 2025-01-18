@@ -1,0 +1,252 @@
+/* Keyframes */
+
+@keyframes blink-critical {
+	to {
+		/*color: @white;*/
+		background-color: @critical;
+	}
+}
+
+
+/* Styles */
+
+/* Colors (gruvbox) */
+@define-color black   #1c1c1c; /* Darker */
+@define-color red     #e3342f; /* More vibrant */
+@define-color green   #718c00; /* More vibrant */
+@define-color yellow  #e5b700; /* Brighter */
+@define-color blue    #3a76a3; /* More vibrant */
+@define-color purple  #a64d79; /* More saturated */
+@define-color aqua    #56a674; /* More vibrant */
+@define-color gray    #7c6f64; /* Darker */
+@define-color brgray  #6f645a; /* Darker */
+@define-color brred   #ff6347; /* Brighter */
+@define-color brgreen #a4c200; /* Brighter */
+@define-color bryellow #ffcc00; /* Brighter */
+@define-color brblue  #5a9fd4; /* Brighter */
+@define-color brpurple #c774b3; /* Brighter */
+@define-color braqua  #6fcea3; /* Brighter */
+@define-color white   #fdfbf8; /* Brighter */
+@define-color bg2     #2e2a26; /* Darker */
+
+
+
+@define-color warning 	@bryellow;
+@define-color critical	@red;
+@define-color mode	@black;
+@define-color unfocused	@bg2;
+@define-color focused	@braqua;
+@define-color inactive	@purple;
+@define-color sound	@brpurple;
+@define-color network	@purple;
+@define-color memory	@brgreen;
+@define-color cpu	@green;
+@define-color layout	@yellow;
+@define-color battery	@bryellow;
+@define-color date	@black;
+@define-color time	@white;
+
+/* Reset all styles */
+* {
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+	icon-shadow: none;
+}
+
+/* The whole bar */
+#waybar {
+	background: rgba(40, 40, 40, 0.85); /* #282828e0 */
+	color: @white;
+	font-family: JetBrainsMono Nerd Font, Siji;
+	font-size: 12pt;
+	/*font-weight: bold;*/
+}
+
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#backlight,
+#idle_inhibitor,
+#disk,
+#user,
+#mpris {
+	padding-left: 10pt;
+	padding-right: 10pt;
+}
+
+/* Each critical module */
+#mode,
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning {
+	color: @warning;
+}
+
+/* And now modules themselves in their respective order */
+
+/* Current sway mode (resize etc) */
+#mode {
+	color: @white;
+	background: @mode;
+}
+
+/* Workspaces stuff */
+#workspaces button {
+	/*font-weight: bold;*/
+	padding-left: 2pt;
+	padding-right: 2pt;
+	color: @white;
+	background: @unfocused;
+}
+
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+	color: @white;
+	background: @inactive;
+}
+
+/* Active (on focused output) */
+#workspaces button.active {
+	color: @black;
+	background: @focused;
+}
+
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @black;
+	background: @warning;
+}
+
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: @black;
+	color: @white;
+}
+
+#window {
+	margin-right: 35pt;
+	margin-left: 35pt;
+}
+
+#pulseaudio {
+	background: @sound;
+	color: @black;
+}
+
+#network {
+	background: @network;
+	color: @white;
+}
+
+#memory {
+	background: @memory;
+	color: @black;
+}
+
+#cpu {
+	background: @cpu;
+	color: @white;
+}
+
+#temperature {
+	background: @temp;
+	color: @black;
+}
+
+#language {
+	background: @layout;
+	color: @white;
+}
+
+#battery {
+	background: @battery;
+	color: @black;
+}
+
+#tray {
+	background: @date;
+}
+
+#clock.date {
+	background: @date;
+	color: @white;
+}
+
+#clock.time {
+	background: @time;
+	color: @black;
+}
+
+#custom-arrow1 {
+	font-size: 11pt;
+	color: @time;
+	background: @date;
+}
+
+#custom-arrow2 {
+	font-size: 11pt;
+	color: @date;
+	background: @battery;
+}
+
+#custom-arrow4 {
+	font-size: 11pt;
+	color: @battery;
+	background: @cpu;
+}
+
+#custom-arrow6 {
+	font-size: 11pt;
+	color: @cpu;
+	background: @memory;
+}
+
+#custom-arrow7 {
+	font-size: 11pt;
+	color: @memory;
+	background: @network;
+}
+
+#custom-arrow8 {
+	font-size: 11pt;
+	color: @network;
+	background: @sound;
+}
+
+#custom-arrow9 {
+	font-size: 11pt;
+	color: @sound;
+	background: transparent;
+}
+
+#custom-arrow10 {
+	font-size: 11pt;
+	color: @unfocused;
+	background: transparent;
+}

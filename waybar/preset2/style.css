@@ -1,0 +1,25 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 15;
+  color: #ffffff;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window > box {
+    background: rgb(50,50,50);
+    margin-top: -10px;
+    margin-bottom: -20px;
+    color: white;
+}
+
+#custom-label {
+	font-size: 30;
+}
+
+#window {
+	margin-top: -10px;
+}
+
