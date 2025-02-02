@@ -10,10 +10,10 @@
     "flakes"
   ];
 
-  users.users.luft = {
+  users.users.herbst = {
     isNormalUser = true;
-    home = "/home/luft";
-    description = "luft means air";
+    home = "/home/herbst";
+    description = "me";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
