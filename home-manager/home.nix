@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "luft";
-  home.homeDirectory = "/home/luft";
+  home.username = "herbst";
+  home.homeDirectory = "/home/herbst";
 
   # dotfiles
   home.file = {
