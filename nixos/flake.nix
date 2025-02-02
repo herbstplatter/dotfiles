@@ -22,7 +22,7 @@
       };
 
       homeConfigurations = {
-        luft = home-manager.lib.homeManagerConfiguration {
+        herbst = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 	  modules = [ ./home-manager/home.nix ]; # Must be located at '~/.config/home-manager/'. You can make a symlink for it.
 	};
